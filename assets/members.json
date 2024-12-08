@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Wade Warren",
+    "id": "WSL0003",
+    "status": "WORKING",
+    "login_time": "09:30 am",
+    "logout_time": "06:40 pm",
+    "avatar_url": "https://via.placeholder.com/150"
+  },
+  {
+    "name": "Esther Howard",
+    "id": "WSL0034",
+    "status": "WORKING",
+    "login_time": "09:30 am",
+    "logout_time": "06:40 pm",
+    "avatar_url": "https://via.placeholder.com/150"
+  },
+  {
+    "name": "Cameron Williamson",
+    "id": "WSL0054",
+    "status": "NOT LOGGED IN YET",
+    "login_time": "09:45 am",
+    "logout_time": "07:45 pm",
+    "avatar_url": "https://via.placeholder.com/150"
+  },
+  {
+    "name": "Brooklyn Simmons",
+    "id": "WSL0076",
+    "status": "WORKING",
+    "login_time": "09:30 am",
+    "logout_time": "06:40 pm",
+    "avatar_url": "https://via.placeholder.com/150"
+  }
+]
