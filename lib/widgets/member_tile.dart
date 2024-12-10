@@ -11,108 +11,154 @@ class MemberTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 4,
-      margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Row(
-          children: [
-            // Avatar
-            CircleAvatar(
-              radius: 30,
-              backgroundImage: NetworkImage(member.avatarUrl),
-            ),
-            const SizedBox(width: 16),
-            // Member Details
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    member.name,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                  Text(
-                    member.id,
-                    style: const TextStyle(color: Colors.grey),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    member.status,
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: member.status == "WORKING" ? Colors.green : Colors.red,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    'Login: ${member.loginTime}',
-                    style: const TextStyle(fontSize: 12, color: Colors.blueGrey),
-                  ),
-                  Text(
-                    'Logout: ${member.logoutTime}',
-                    style: const TextStyle(fontSize: 12, color: Colors.blueGrey),
-                  ),
-                ],
+      elevation: 6,
+      margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      shadowColor: Colors.grey.withOpacity(0.3),
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.white, Colors.blue.shade50],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Avatar
+              CircleAvatar(
+                radius: 32,
+                backgroundImage: NetworkImage(member.avatarUrl),
+                backgroundColor: Colors.grey.shade200,
               ),
-            ),
-            const SizedBox(width: 16),
-            // Action Buttons
-            Column(
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Page1()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+              const SizedBox(width: 16),
+              // Member Details
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      member.name,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18,
+                        color: Colors.black87,
+                      ),
                     ),
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 8,
-                      horizontal: 12,
+                    Text(
+                      member.id,
+                      style: const TextStyle(
+                        color: Colors.grey,
+                        fontSize: 14,
+                        fontStyle: FontStyle.italic,
+                      ),
                     ),
-                  ),
-                  child: const Text(
-                    '1',
-                    style: TextStyle(fontSize: 16, color: Colors.white),
-                  ),
+                    const SizedBox(height: 6),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: member.status == "WORKING"
+                            ? Colors.green.withOpacity(0.2)
+                            : Colors.red.withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Text(
+                        member.status,
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: member.status == "WORKING"
+                              ? Colors.green
+                              : Colors.red,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 6),
+                    Row(
+                      children: [
+                        Icon(Icons.login, size: 16, color: Colors.blueGrey),
+                        const SizedBox(width: 4),
+                        Text(
+                          'Login: ${member.loginTime}',
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: Colors.blueGrey,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Icon(Icons.logout, size: 16, color: Colors.blueGrey),
+                        const SizedBox(width: 4),
+                        Text(
+                          'Logout: ${member.logoutTime}',
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: Colors.blueGrey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 8),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Page2()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 8,
-                      horizontal: 12,
-                    ),
-                  ),
-                  child: const Text(
-                    '2',
-                    style: TextStyle(fontSize: 16, color: Colors.white),
-                  ),
-                ),
-              ],
-            ),
-          ],
+              ),
+              const SizedBox(width: 16),
+              // Action Buttons
+              Row(
+  mainAxisAlignment: MainAxisAlignment.center, // Align buttons to the center
+  children: [
+    ElevatedButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Page1()),
+        );
+      },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.blueAccent,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        padding: const EdgeInsets.all(12),
+      ),
+      child: const Icon(
+        Icons.calendar_today, // Calendar icon
+        color: Colors.white,
+        size: 20,
+      ),
+    ),
+    const SizedBox(width: 8), // Add spacing between buttons
+    ElevatedButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Page2()),
+        );
+      },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.greenAccent.shade700,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        padding: const EdgeInsets.all(12),
+      ),
+      child: const Icon(
+        Icons.my_location, // Location icon
+        color: Colors.white,
+        size: 20,
+      ),
+    ),
+  ],
+)
+
+            ],
+          ),
         ),
       ),
     );
