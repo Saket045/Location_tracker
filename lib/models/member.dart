@@ -5,6 +5,7 @@ class Member {
   final String loginTime;
   final String logoutTime;
   final String avatarUrl;
+  final Location location;
 
   Member({
     required this.name,
@@ -13,6 +14,7 @@ class Member {
     required this.loginTime,
     required this.logoutTime,
     required this.avatarUrl,
+    required this.location,
   });
 
   factory Member.fromJson(Map<String, dynamic> json) {
@@ -23,6 +25,27 @@ class Member {
       loginTime: json['login_time'],
       logoutTime: json['logout_time'],
       avatarUrl: json['avatar_url'],
+      location: Location.fromJson(json['location']),
+    );
+  }
+}
+
+class Location {
+  final String name;
+  final double latitude;
+  final double longitude;
+
+  Location({
+    required this.name,
+    required this.latitude,
+    required this.longitude,
+  });
+
+  factory Location.fromJson(Map<String, dynamic> json) {
+    return Location(
+      name: json['name'],
+      latitude: json['latitude'],
+      longitude: json['longitude'],
     );
   }
 }

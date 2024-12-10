@@ -5,7 +5,12 @@
     "status": "WORKING",
     "login_time": "09:30 am",
     "logout_time": "06:40 pm",
-    "avatar_url": "https://via.placeholder.com/150"
+    "avatar_url": "https://via.placeholder.com/150",
+    "location": {
+      "name": "Bara Imambara",
+      "latitude": 26.8691,
+      "longitude": 80.9120
+    }
   },
   {
     "name": "Esther Howard",
@@ -13,7 +18,12 @@
     "status": "WORKING",
     "login_time": "09:30 am",
     "logout_time": "06:40 pm",
-    "avatar_url": "https://via.placeholder.com/150"
+    "avatar_url": "https://via.placeholder.com/150",
+    "location": {
+      "name": "Rumi Darwaza",
+      "latitude": 26.8692,
+      "longitude": 80.9137
+    }
   },
   {
     "name": "Cameron Williamson",
@@ -21,7 +31,12 @@
     "status": "NOT LOGGED IN YET",
     "login_time": "09:45 am",
     "logout_time": "07:45 pm",
-    "avatar_url": "https://via.placeholder.com/150"
+    "avatar_url": "https://via.placeholder.com/150",
+    "location": {
+      "name": "Hazratganj Market",
+      "latitude": 26.8487,
+      "longitude": 80.9455
+    }
   },
   {
     "name": "Brooklyn Simmons",
@@ -29,6 +44,89 @@
     "status": "WORKING",
     "login_time": "09:30 am",
     "logout_time": "06:40 pm",
-    "avatar_url": "https://via.placeholder.com/150"
+    "avatar_url": "https://via.placeholder.com/150",
+    "location": {
+      "name": "Ambedkar Memorial Park",
+      "latitude": 26.8344,
+      "longitude": 80.9853
+    }
+  },
+  {
+    "name": "Liam Green",
+    "id": "WSL0102",
+    "status": "WORKING",
+    "login_time": "09:00 am",
+    "logout_time": "05:30 pm",
+    "avatar_url": "https://via.placeholder.com/150",
+    "location": {
+      "name": "Gomti Riverfront Park",
+      "latitude": 26.8558,
+      "longitude": 80.9435
+    }
+  },
+  {
+    "name": "Ava Johnson",
+    "id": "WSL0113",
+    "status": "NOT LOGGED IN YET",
+    "login_time": "10:00 am",
+    "logout_time": "06:00 pm",
+    "avatar_url": "https://via.placeholder.com/150",
+    "location": {
+      "name": "Janeshwar Mishra Park",
+      "latitude": 26.8607,
+      "longitude": 81.0007
+    }
+  },
+  {
+    "name": "Ethan Martinez",
+    "id": "WSL0145",
+    "status": "WORKING",
+    "login_time": "09:30 am",
+    "logout_time": "06:00 pm",
+    "avatar_url": "https://via.placeholder.com/150",
+    "location": {
+      "name": "Chota Imambara",
+      "latitude": 26.8682,
+      "longitude": 80.9172
+    }
+  },
+  {
+    "name": "Harper Lee",
+    "id": "WSL0162",
+    "status": "NOT LOGGED IN YET",
+    "login_time": "10:30 am",
+    "logout_time": "07:00 pm",
+    "avatar_url": "https://via.placeholder.com/150",
+    "location": {
+      "name": "British Residency",
+      "latitude": 26.8590,
+      "longitude": 80.9167
+    }
+  },
+  {
+    "name": "Mason Clark",
+    "id": "WSL0187",
+    "status": "WORKING",
+    "login_time": "09:15 am",
+    "logout_time": "06:30 pm",
+    "avatar_url": "https://via.placeholder.com/150",
+    "location": {
+      "name": "Lucknow Zoo",
+      "latitude": 26.8450,
+      "longitude": 80.9462
+    }
+  },
+  {
+    "name": "Isabella Walker",
+    "id": "WSL0203",
+    "status": "WORKING",
+    "login_time": "08:45 am",
+    "logout_time": "06:15 pm",
+    "avatar_url": "https://via.placeholder.com/150",
+    "location": {
+      "name": "Kukrail Picnic Spot",
+      "latitude": 26.8890,
+      "longitude": 81.0040
+    }
   }
 ]

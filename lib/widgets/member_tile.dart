@@ -120,7 +120,7 @@ class MemberTile extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Page1()),
+                        MaterialPageRoute(builder: (context) => GoogleMapScreen(member:member)),
                       );
                     },
                     style: ElevatedButton.styleFrom(
