@@ -14,7 +14,7 @@ class MemberTile extends StatelessWidget {
       elevation: 6,
       margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      shadowColor: Colors.grey.withOpacity(0.3),
+      shadowColor: Colors.grey.withOpacity(0.2),
       child: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -34,6 +34,9 @@ class MemberTile extends StatelessWidget {
                 radius: 32,
                 backgroundImage: NetworkImage(member.avatarUrl),
                 backgroundColor: Colors.grey.shade200,
+                child: member.avatarUrl.isEmpty
+                    ? const Icon(Icons.person, size: 32, color: Colors.grey)
+                    : null,
               ),
               const SizedBox(width: 16),
               // Member Details
@@ -44,7 +47,7 @@ class MemberTile extends StatelessWidget {
                     Text(
                       member.name,
                       style: const TextStyle(
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.bold,
                         fontSize: 18,
                         color: Colors.black87,
                       ),
@@ -57,7 +60,7 @@ class MemberTile extends StatelessWidget {
                         fontStyle: FontStyle.italic,
                       ),
                     ),
-                    const SizedBox(height: 6),
+                    const SizedBox(height: 8),
                     Container(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 8, vertical: 4),
@@ -71,14 +74,14 @@ class MemberTile extends StatelessWidget {
                         member.status,
                         style: TextStyle(
                           fontSize: 14,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w500,
                           color: member.status == "WORKING"
                               ? Colors.green
                               : Colors.red,
                         ),
                       ),
                     ),
-                    const SizedBox(height: 6),
+                    const SizedBox(height: 8),
                     Row(
                       children: [
                         Icon(Icons.login, size: 16, color: Colors.blueGrey),
@@ -110,53 +113,60 @@ class MemberTile extends StatelessWidget {
               ),
               const SizedBox(width: 16),
               // Action Buttons
-              Row(
-  mainAxisAlignment: MainAxisAlignment.center, // Align buttons to the center
-  children: [
-    ElevatedButton(
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => Page1()),
-        );
-      },
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.blueAccent,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        padding: const EdgeInsets.all(12),
-      ),
-      child: const Icon(
-        Icons.calendar_today, // Calendar icon
-        color: Colors.white,
-        size: 20,
-      ),
-    ),
-    const SizedBox(width: 8), // Add spacing between buttons
-    ElevatedButton(
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => Page2()),
-        );
-      },
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.greenAccent.shade700,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        padding: const EdgeInsets.all(12),
-      ),
-      child: const Icon(
-        Icons.my_location, // Location icon
-        color: Colors.white,
-        size: 20,
-      ),
-    ),
-  ],
-)
-
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Page1()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blueAccent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      padding: const EdgeInsets.all(12),
+                    ),
+                    icon: const Icon(
+                      Icons.calendar_today,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                    label: const Text(
+                      'Schedule',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Page2()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.greenAccent.shade700,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      padding: const EdgeInsets.all(12),
+                    ),
+                    icon: const Icon(
+                      Icons.my_location,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                    label: const Text(
+                      'Locate',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
