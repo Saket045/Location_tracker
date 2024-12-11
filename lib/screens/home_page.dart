@@ -3,7 +3,61 @@ import 'attendance_page.dart';
 import '../widgets/drawer_item.dart';
 import '../screens/attendance_page.dart';
 
+
 class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Row(
+        children: [
+          // Fixed Navigation Drawer
+          NavigationDrawer(),
+          // Scrollable Content
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      'Welcome to Workstatus!',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: const Color.fromRGBO(96, 125, 139, 1),
+                      ),
+                    ),
+                  ),
+                  // Example scrollable content
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: 20, // Simulating 20 items for content
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 8.0),
+                        child: Card(
+                          child: ListTile(
+                            title: Text('Item ${index + 1}'),
+                            subtitle: Text('Details about item ${index + 1}'),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/*class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,23 +80,108 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-}
+}*/
 
+/*class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          // Navigation Drawer - Positioned to the left
+          Positioned(
+            top: 0,
+            bottom: 0,
+            left: 0,
+            width: 250,
+            child: Container(
+              color: Colors.blueGrey.shade50,
+              child: NavigationDrawer(),
+            ),
+          ),
+          // Main Content Area - Positioned to fill the remaining space
+          Positioned(
+            top: 0,
+            bottom: 0,
+            left: 250,
+            right: 0,
+            child: Center(
+              child: Container(
+                padding: EdgeInsets.all(16.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 5,
+                      blurRadius: 10,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'Welcome to Workstatus!',
+                      style: TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                        color: const Color.fromRGBO(96, 125, 139, 1),
+                        shadows: [
+                          Shadow(
+                            blurRadius: 4.0,
+                            color: Colors.grey.withOpacity(0.5),
+                            offset: Offset(2, 2),
+                          ),
+                        ],
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      'Manage your work effortlessly with our tools.',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey.shade600,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}*/
 
 class NavigationDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 250,
-      color: const Color.fromARGB(255, 135, 191, 243),
+      color: const Color.fromRGBO(74, 59, 131, 1),
       child: Column(
         children: [
           Container(
             padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-            color: const Color.fromARGB(255, 71, 12, 220),
+            color: const Color.fromARGB(255, 65, 46, 137),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Text(
+                  'workstatus',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 20),
                 CircleAvatar(
                   radius: 30,
                   backgroundColor: Colors.white,
