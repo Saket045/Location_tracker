@@ -1,35 +1,3 @@
-class Member {
-  final String name;
-  final String id;
-  final String status;
-  final String loginTime;
-  final String logoutTime;
-  final String avatarUrl;
-  final Location location;
-
-  Member({
-    required this.name,
-    required this.id,
-    required this.status,
-    required this.loginTime,
-    required this.logoutTime,
-    required this.avatarUrl,
-    required this.location,
-  });
-
-  factory Member.fromJson(Map<String, dynamic> json) {
-    return Member(
-      name: json['name'],
-      id: json['id'],
-      status: json['status'],
-      loginTime: json['login_time'],
-      logoutTime: json['logout_time'],
-      avatarUrl: json['avatar_url'],
-      location: Location.fromJson(json['location']),
-    );
-  }
-}
-
 class Location {
   final String name;
   final double latitude;
@@ -43,9 +11,42 @@ class Location {
 
   factory Location.fromJson(Map<String, dynamic> json) {
     return Location(
-      name: json['name'],
-      latitude: json['latitude'],
-      longitude: json['longitude'],
+      name: json['name'] as String,
+      latitude: json['latitude'] as double,
+      longitude: json['longitude'] as double,
     );
   }
 }
+
+class Member {
+  final String name;
+  final String id;
+  final String status;
+  final String? loginTime;
+  final String? logoutTime;
+  final String avatarUrl;
+  final Location location;
+
+  Member({
+    required this.name,
+    required this.id,
+    required this.status,
+    this.loginTime,
+    this.logoutTime,
+    required this.avatarUrl,
+    required this.location,
+  });
+
+  factory Member.fromJson(Map<String, dynamic> json) {
+    return Member(
+      name: json['name'] as String,
+      id: json['id'] as String,
+      status: json['status'] as String,
+      loginTime: json['login_time'] as String?,
+      logoutTime: json['logout_time'] as String?,
+      avatarUrl: json['avatar_url'] as String,
+      location: Location.fromJson(json['location'] as Map<String, dynamic>),
+    );
+  }
+}
+
