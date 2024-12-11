@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blueGrey,
+                  color: const Color.fromRGBO(96, 125, 139, 1),
                 ),
               ),
             ),
@@ -34,20 +34,20 @@ class NavigationDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 250,
-      color: const Color(0xFF5E42A6),
+      color: const Color.fromARGB(255, 135, 191, 243),
       child: Column(
         children: [
           Container(
             padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-            color: Colors.purple,
+            color: const Color.fromARGB(255, 71, 12, 220),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CircleAvatar(
                   radius: 30,
                   backgroundColor: Colors.white,
-                  child: Icon(Icons.person, color: Colors.purple, size: 40),
-                ),
+                  backgroundImage: NetworkImage('https://png.pngtree.com/png-clipart/20231019/original/pngtree-user-profile-avatar-png-image_13369988.png'),
+                  ),
                 const SizedBox(height: 10),
                 Text(
                   'Cameron Williamson',
