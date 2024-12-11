@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'all_members_page.dart';
 import '../models/member.dart';
 import '../screens/page1.dart';
 import '../screens/page2.dart';
@@ -65,12 +66,22 @@ class _AttendancePageState extends State<AttendancePage> {
                   size: 24,
                 ),
                 SizedBox(width: screenWidth * 0.02),
-                const Text(
-                  'All Members',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF1A1F36),
+                const SizedBox(width: 8),
+                GestureDetector(
+                  onTap: () {
+                    // Navigate to AllMembersPage when clicked
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AllMembersPage()),
+                    );
+                  },
+                  child: const Text(
+                    'All Members',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF1A1F36),
+                    ),
                   ),
                 ),
                 const Spacer(),
