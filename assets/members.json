@@ -10,7 +10,79 @@
       "name": "Bara Imambara",
       "latitude": 26.8691,
       "longitude": 80.9120
-    }
+    },
+    "past_location": [
+      {
+        "name": "Lucknow Railway Station",
+        "latitude": 26.8316,
+        "longitude": 80.9242,
+        "entry_time": "08:15 am",
+        "exit_time": "08:45 am"
+      },
+      {
+        "name": "Hazratganj Market",
+        "latitude": 26.8487,
+        "longitude": 80.9455,
+        "entry_time": "09:30 am",
+        "exit_time": "10:45 am"
+      },
+      {
+        "name": "Ambedkar Memorial Park",
+        "latitude": 26.8344,
+        "longitude": 80.9853,
+        "entry_time": "11:15 am",
+        "exit_time": "12:30 pm"
+      },
+      {
+        "name": "Chota Imambara",
+        "latitude": 26.8682,
+        "longitude": 80.9172,
+        "entry_time": "01:00 pm",
+        "exit_time": "02:15 pm"
+      },
+      {
+        "name": "Gomti Riverfront Park",
+        "latitude": 26.8558,
+        "longitude": 80.9435,
+        "entry_time": "02:45 pm",
+        "exit_time": "03:30 pm"
+      },
+      {
+        "name": "Lucknow Zoo",
+        "latitude": 26.8450,
+        "longitude": 80.9462,
+        "entry_time": "04:00 pm",
+        "exit_time": "05:15 pm"
+      },
+      {
+        "name": "Rumi Darwaza",
+        "latitude": 26.8692,
+        "longitude": 80.9137,
+        "entry_time": "05:30 pm",
+        "exit_time": "06:00 pm"
+      },
+      {
+        "name": "Indira Gandhi Pratishthan",
+        "latitude": 26.8690,
+        "longitude": 81.0137,
+        "entry_time": "06:15 pm",
+        "exit_time": "07:00 pm"
+      },
+      {
+        "name": "Janeshwar Mishra Park",
+        "latitude": 26.8607,
+        "longitude": 81.0007,
+        "entry_time": "07:15 pm",
+        "exit_time": "07:45 pm"
+      },
+      {
+        "name": "British Residency",
+        "latitude": 26.8590,
+        "longitude": 80.9167,
+        "entry_time": "08:00 pm",
+        "exit_time": "08:30 pm"
+      }
+    ]
   },
   {
     "name": "Esther Howard",
@@ -23,7 +95,79 @@
       "name": "Rumi Darwaza",
       "latitude": 26.8692,
       "longitude": 80.9137
-    }
+    },
+    "past_location": [
+      {
+        "name": "Charbagh Metro Station",
+        "latitude": 26.8309,
+        "longitude": 80.9242,
+        "entry_time": "08:30 am",
+        "exit_time": "09:00 am"
+      },
+      {
+        "name": "Lucknow University",
+        "latitude": 26.8672,
+        "longitude": 80.9358,
+        "entry_time": "09:30 am",
+        "exit_time": "10:45 am"
+      },
+      {
+        "name": "Hazratganj Market",
+        "latitude": 26.8487,
+        "longitude": 80.9455,
+        "entry_time": "11:15 am",
+        "exit_time": "12:30 pm"
+      },
+      {
+        "name": "Bara Imambara",
+        "latitude": 26.8691,
+        "longitude": 80.9120,
+        "entry_time": "01:00 pm",
+        "exit_time": "02:15 pm"
+      },
+      {
+        "name": "Ambedkar Memorial Park",
+        "latitude": 26.8344,
+        "longitude": 80.9853,
+        "entry_time": "02:45 pm",
+        "exit_time": "04:00 pm"
+      },
+      {
+        "name": "Gomti Riverfront Park",
+        "latitude": 26.8558,
+        "longitude": 80.9435,
+        "entry_time": "04:30 pm",
+        "exit_time": "05:15 pm"
+      },
+      {
+        "name": "Lucknow Zoo",
+        "latitude": 26.8450,
+        "longitude": 80.9462,
+        "entry_time": "05:30 pm",
+        "exit_time": "06:15 pm"
+      },
+      {
+        "name": "Kukrail Picnic Spot",
+        "latitude": 26.8890,
+        "longitude": 81.0040,
+        "entry_time": "06:30 pm",
+        "exit_time": "07:15 pm"
+      },
+      {
+        "name": "Indira Gandhi Pratishthan",
+        "latitude": 26.8690,
+        "longitude": 81.0137,
+        "entry_time": "07:30 pm",
+        "exit_time": "08:00 pm"
+      },
+      {
+        "name": "Lucknow Golf Club",
+        "latitude": 26.8428,
+        "longitude": 80.9470,
+        "entry_time": "08:15 pm",
+        "exit_time": "08:45 pm"
+      }
+    ]
   },
   {
     "name": "Cameron Williamson",
@@ -36,7 +180,79 @@
       "name": "Hazratganj Market",
       "latitude": 26.8487,
       "longitude": 80.9455
-    }
+    },
+    "past_location": [
+      {
+        "name": "Lucknow University",
+        "latitude": 26.8672,
+        "longitude": 80.9358,
+        "entry_time": "08:00 am",
+        "exit_time": "09:15 am"
+      },
+      {
+        "name": "Charbagh Metro Station",
+        "latitude": 26.8309,
+        "longitude": 80.9242,
+        "entry_time": "09:45 am",
+        "exit_time": "10:15 am"
+      },
+      {
+        "name": "Bara Imambara",
+        "latitude": 26.8691,
+        "longitude": 80.9120,
+        "entry_time": "10:45 am",
+        "exit_time": "12:00 pm"
+      },
+      {
+        "name": "Rumi Darwaza",
+        "latitude": 26.8692,
+        "longitude": 80.9137,
+        "entry_time": "12:30 pm",
+        "exit_time": "01:15 pm"
+      },
+      {
+        "name": "Ambedkar Memorial Park",
+        "latitude": 26.8344,
+        "longitude": 80.9853,
+        "entry_time": "01:45 pm",
+        "exit_time": "03:00 pm"
+      },
+      {
+        "name": "Gomti Riverfront Park",
+        "latitude": 26.8558,
+        "longitude": 80.9435,
+        "entry_time": "03:30 pm",
+        "exit_time": "04:45 pm"
+      },
+      {
+        "name": "Lucknow Zoo",
+        "latitude": 26.8450,
+        "longitude": 80.9462,
+        "entry_time": "05:15 pm",
+        "exit_time": "06:30 pm"
+      },
+      {
+        "name": "Janeshwar Mishra Park",
+        "latitude": 26.8607,
+        "longitude": 81.0007,
+        "entry_time": "07:00 pm",
+        "exit_time": "07:45 pm"
+      },
+      {
+        "name": "British Residency",
+        "latitude": 26.8590,
+        "longitude": 80.9167,
+        "entry_time": "08:15 pm",
+        "exit_time": "08:45 pm"
+      },
+      {
+        "name": "Kukrail Picnic Spot",
+        "latitude": 26.8890,
+        "longitude": 81.0040,
+        "entry_time": "09:15 pm",
+        "exit_time": "09:45 pm"
+      }
+    ]
   },
   {
     "name": "Brooklyn Simmons",
@@ -49,7 +265,79 @@
       "name": "Ambedkar Memorial Park",
       "latitude": 26.8344,
       "longitude": 80.9853
-    }
+    },
+    "past_location": [
+      {
+        "name": "Lucknow Railway Station",
+        "latitude": 26.8316,
+        "longitude": 80.9242,
+        "entry_time": "08:30 am",
+        "exit_time": "09:00 am"
+      },
+      {
+        "name": "Hazratganj Market",
+        "latitude": 26.8487,
+        "longitude": 80.9455,
+        "entry_time": "09:30 am",
+        "exit_time": "10:45 am"
+      },
+      {
+        "name": "Chota Imambara",
+        "latitude": 26.8682,
+        "longitude": 80.9172,
+        "entry_time": "11:15 am",
+        "exit_time": "12:30 pm"
+      },
+      {
+        "name": "Bara Imambara",
+        "latitude": 26.8691,
+        "longitude": 80.9120,
+        "entry_time": "01:00 pm",
+        "exit_time": "02:15 pm"
+      },
+      {
+        "name": "Rumi Darwaza",
+        "latitude": 26.8692,
+        "longitude": 80.9137,
+        "entry_time": "02:45 pm",
+        "exit_time": "03:30 pm"
+      },
+      {
+        "name": "Gomti Riverfront Park",
+        "latitude": 26.8558,
+        "longitude": 80.9435,
+        "entry_time": "04:00 pm",
+        "exit_time": "05:15 pm"
+      },
+      {
+        "name": "Lucknow Zoo",
+        "latitude": 26.8450,
+        "longitude": 80.9462,
+        "entry_time": "05:45 pm",
+        "exit_time": "07:00 pm"
+      },
+      {
+        "name": "Janeshwar Mishra Park",
+        "latitude": 26.8607,
+        "longitude": 81.0007,
+        "entry_time": "07:30 pm",
+        "exit_time": "08:15 pm"
+      },
+      {
+        "name": "Indira Gandhi Pratishthan",
+        "latitude": 26.8690,
+        "longitude": 81.0137,
+        "entry_time": "08:45 pm",
+        "exit_time": "09:30 pm"
+      },
+      {
+        "name": "Lucknow Golf Club",
+        "latitude": 26.8428,
+        "longitude": 80.9470,
+        "entry_time": "10:00 pm",
+        "exit_time": "10:30 pm"
+      }
+    ]
   },
   {
     "name": "Liam Green",
@@ -62,7 +350,79 @@
       "name": "Gomti Riverfront Park",
       "latitude": 26.8558,
       "longitude": 80.9435
-    }
+    },
+    "past_location": [
+      {
+        "name": "Charbagh Metro Station",
+        "latitude": 26.8309,
+        "longitude": 80.9242,
+        "entry_time": "08:15 am",
+        "exit_time": "08:45 am"
+      },
+      {
+        "name": "Lucknow University",
+        "latitude": 26.8672,
+        "longitude": 80.9358,
+        "entry_time": "09:15 am",
+        "exit_time": "10:30 am"
+      },
+      {
+        "name": "Hazratganj Market",
+        "latitude": 26.8487,
+        "longitude": 80.9455,
+        "entry_time": "11:00 am",
+        "exit_time": "12:15 pm"
+      },
+      {
+        "name": "Bara Imambara",
+        "latitude": 26.8691,
+        "longitude": 80.9120,
+        "entry_time": "12:45 pm",
+        "exit_time": "02:00 pm"
+      },
+      {
+        "name": "Rumi Darwaza",
+        "latitude": 26.8692,
+        "longitude": 80.9137,
+        "entry_time": "02:30 pm",
+        "exit_time": "03:15 pm"
+      },
+      {
+        "name": "Ambedkar Memorial Park",
+        "latitude": 26.8344,
+        "longitude": 80.9853,
+        "entry_time": "03:45 pm",
+        "exit_time": "05:00 pm"
+      },
+      {
+        "name": "Lucknow Zoo",
+        "latitude": 26.8450,
+        "longitude": 80.9462,
+        "entry_time": "05:30 pm",
+        "exit_time": "06:45 pm"
+      },
+      {
+        "name": "British Residency",
+        "latitude": 26.8590,
+        "longitude": 80.9167,
+        "entry_time": "07:15 pm",
+        "exit_time": "08:00 pm"
+      },
+      {
+        "name": "Kukrail Picnic Spot",
+        "latitude": 26.8890,
+        "longitude": 81.0040,
+        "entry_time": "08:30 pm",
+        "exit_time": "09:15 pm"
+      },
+      {
+        "name": "Indira Gandhi Pratishthan",
+        "latitude": 26.8690,
+        "longitude": 81.0137,
+        "entry_time": "09:45 pm",
+        "exit_time": "10:30 pm"
+      }
+    ]
   },
   {
     "name": "Ava Johnson",
@@ -75,7 +435,79 @@
       "name": "Janeshwar Mishra Park",
       "latitude": 26.8607,
       "longitude": 81.0007
-    }
+    },
+    "past_location": [
+      {
+        "name": "Lucknow Golf Club",
+        "latitude": 26.8428,
+        "longitude": 80.9470,
+        "entry_time": "08:30 am",
+        "exit_time": "09:45 am"
+      },
+      {
+        "name": "Charbagh Metro Station",
+        "latitude": 26.8309,
+        "longitude": 80.9242,
+        "entry_time": "10:15 am",
+        "exit_time": "10:45 am"
+      },
+      {
+        "name": "Hazratganj Market",
+        "latitude": 26.8487,
+        "longitude": 80.9455,
+        "entry_time": "11:15 am",
+        "exit_time": "12:30 pm"
+      },
+      {
+        "name": "Bara Imambara",
+        "latitude": 26.8691,
+        "longitude": 80.9120,
+        "entry_time": "01:00 pm",
+        "exit_time": "02:15 pm"
+      },
+      {
+        "name": "Rumi Darwaza",
+        "latitude": 26.8692,
+        "longitude": 80.9137,
+        "entry_time": "02:45 pm",
+        "exit_time": "03:30 pm"
+      },
+      {
+        "name": "Ambedkar Memorial Park",
+        "latitude": 26.8344,
+        "longitude": 80.9853,
+        "entry_time": "04:00 pm",
+        "exit_time": "05:15 pm"
+      },
+      {
+        "name": "Gomti Riverfront Park",
+        "latitude": 26.8558,
+        "longitude": 80.9435,
+        "entry_time": "05:45 pm",
+        "exit_time": "06:30 pm"
+      },
+      {
+        "name": "Lucknow Zoo",
+        "latitude": 26.8450,
+        "longitude": 80.9462,
+        "entry_time": "07:00 pm",
+        "exit_time": "08:15 pm"
+      },
+      {
+        "name": "British Residency",
+        "latitude": 26.8590,
+        "longitude": 80.9167,
+        "entry_time": "08:45 pm",
+        "exit_time": "09:30 pm"
+      },
+      {
+        "name": "Kukrail Picnic Spot",
+        "latitude": 26.8890,
+        "longitude": 81.0040,
+        "entry_time": "10:00 pm",
+        "exit_time": "10:45 pm"
+      }
+    ]
   },
   {
     "name": "Ethan Martinez",
@@ -88,7 +520,79 @@
       "name": "Chota Imambara",
       "latitude": 26.8682,
       "longitude": 80.9172
-    }
+    },
+    "past_location": [
+      {
+        "name": "Lucknow Railway Station",
+        "latitude": 26.8316,
+        "longitude": 80.9242,
+        "entry_time": "08:00 am",
+        "exit_time": "08:30 am"
+      },
+      {
+        "name": "Hazratganj Market",
+        "latitude": 26.8487,
+        "longitude": 80.9455,
+        "entry_time": "09:00 am",
+        "exit_time": "10:15 am"
+      },
+      {
+        "name": "Bara Imambara",
+        "latitude": 26.8691,
+        "longitude": 80.9120,
+        "entry_time": "10:45 am",
+        "exit_time": "12:00 pm"
+      },
+      {
+        "name": "Rumi Darwaza",
+        "latitude": 26.8692,
+        "longitude": 80.9137,
+        "entry_time": "12:30 pm",
+        "exit_time": "01:15 pm"
+      },
+      {
+        "name": "Ambedkar Memorial Park",
+        "latitude": 26.8344,
+        "longitude": 80.9853,
+        "entry_time": "01:45 pm",
+        "exit_time": "03:00 pm"
+      },
+      {
+        "name": "Gomti Riverfront Park",
+        "latitude": 26.8558,
+        "longitude": 80.9435,
+        "entry_time": "03:30 pm",
+        "exit_time": "04:45 pm"
+      },
+      {
+        "name": "Lucknow Zoo",
+        "latitude": 26.8450,
+        "longitude": 80.9462,
+        "entry_time": "05:15 pm",
+        "exit_time": "06:30 pm"
+      },
+      {
+        "name": "Janeshwar Mishra Park",
+        "latitude": 26.8607,
+        "longitude": 81.0007,
+        "entry_time": "07:00 pm",
+        "exit_time": "08:15 pm"
+      },
+      {
+        "name": "Indira Gandhi Pratishthan",
+        "latitude": 26.8690,
+        "longitude": 81.0137,
+        "entry_time": "08:45 pm",
+        "exit_time": "09:30 pm"
+      },
+      {
+        "name": "Lucknow Golf Club",
+        "latitude": 26.8428,
+        "longitude": 80.9470,
+        "entry_time": "10:00 pm",
+        "exit_time": "10:45 pm"
+      }
+    ]
   },
   {
     "name": "Harper Lee",
@@ -101,7 +605,79 @@
       "name": "British Residency",
       "latitude": 26.8590,
       "longitude": 80.9167
-    }
+    },
+    "past_location": [
+      {
+        "name": "Charbagh Metro Station",
+        "latitude": 26.8309,
+        "longitude": 80.9242,
+        "entry_time": "08:15 am",
+        "exit_time": "08:45 am"
+      },
+      {
+        "name": "Lucknow University",
+        "latitude": 26.8672,
+        "longitude": 80.9358,
+        "entry_time": "09:15 am",
+        "exit_time": "10:30 am"
+      },
+      {
+        "name": "Hazratganj Market",
+        "latitude": 26.8487,
+        "longitude": 80.9455,
+        "entry_time": "11:00 am",
+        "exit_time": "12:15 pm"
+      },
+      {
+        "name": "Bara Imambara",
+        "latitude": 26.8691,
+        "longitude": 80.9120,
+        "entry_time": "12:45 pm",
+        "exit_time": "02:00 pm"
+      },
+      {
+        "name": "Rumi Darwaza",
+        "latitude": 26.8692,
+        "longitude": 80.9137,
+        "entry_time": "02:30 pm",
+        "exit_time": "03:15 pm"
+      },
+      {
+        "name": "Ambedkar Memorial Park",
+        "latitude": 26.8344,
+        "longitude": 80.9853,
+        "entry_time": "03:45 pm",
+        "exit_time": "05:00 pm"
+      },
+      {
+        "name": "Gomti Riverfront Park",
+        "latitude": 26.8558,
+        "longitude": 80.9435,
+        "entry_time": "05:30 pm",
+        "exit_time": "06:45 pm"
+      },
+      {
+        "name": "Lucknow Zoo",
+        "latitude": 26.8450,
+        "longitude": 80.9462,
+        "entry_time": "07:15 pm",
+        "exit_time": "08:30 pm"
+      },
+      {
+        "name": "Kukrail Picnic Spot",
+        "latitude": 26.8890,
+        "longitude": 81.0040,
+        "entry_time": "09:00 pm",
+        "exit_time": "09:45 pm"
+      },
+      {
+        "name": "Indira Gandhi Pratishthan",
+        "latitude": 26.8690,
+        "longitude": 81.0137,
+        "entry_time": "10:15 pm",
+        "exit_time": "11:00 pm"
+      }
+    ]
   },
   {
     "name": "Mason Clark",
@@ -114,7 +690,79 @@
       "name": "Lucknow Zoo",
       "latitude": 26.8450,
       "longitude": 80.9462
-    }
+    },
+    "past_location": [
+      {
+        "name": "Lucknow Railway Station",
+        "latitude": 26.8316,
+        "longitude": 80.9242,
+        "entry_time": "08:00 am",
+        "exit_time": "08:30 am"
+      },
+      {
+        "name": "Charbagh Metro Station",
+        "latitude": 26.8309,
+        "longitude": 80.9242,
+        "entry_time": "09:00 am",
+        "exit_time": "09:30 am"
+      },
+      {
+        "name": "Hazratganj Market",
+        "latitude": 26.8487,
+        "longitude": 80.9455,
+        "entry_time": "10:00 am",
+        "exit_time": "11:15 am"
+      },
+      {
+        "name": "Bara Imambara",
+        "latitude": 26.8691,
+        "longitude": 80.9120,
+        "entry_time": "11:45 am",
+        "exit_time": "01:00 pm"
+      },
+      {
+        "name": "Rumi Darwaza",
+        "latitude": 26.8692,
+        "longitude": 80.9137,
+        "entry_time": "01:30 pm",
+        "exit_time": "02:15 pm"
+      },
+      {
+        "name": "Chota Imambara",
+        "latitude": 26.8682,
+        "longitude": 80.9172,
+        "entry_time": "02:45 pm",
+        "exit_time": "04:00 pm"
+      },
+      {
+        "name": "Ambedkar Memorial Park",
+        "latitude": 26.8344,
+        "longitude": 80.9853,
+        "entry_time": "04:30 pm",
+        "exit_time": "05:45 pm"
+      },
+      {
+        "name": "Gomti Riverfront Park",
+        "latitude": 26.8558,
+        "longitude": 80.9435,
+        "entry_time": "06:15 pm",
+        "exit_time": "07:30 pm"
+      },
+      {
+        "name": "Janeshwar Mishra Park",
+        "latitude": 26.8607,
+        "longitude": 81.0007,
+        "entry_time": "08:00 pm",
+        "exit_time": "09:15 pm"
+      },
+      {
+        "name": "British Residency",
+        "latitude": 26.8590,
+        "longitude": 80.9167,
+        "entry_time": "09:45 pm",
+        "exit_time": "10:30 pm"
+      }
+    ]
   },
   {
     "name": "Isabella Walker",
@@ -127,6 +775,78 @@
       "name": "Kukrail Picnic Spot",
       "latitude": 26.8890,
       "longitude": 81.0040
-    }
+    },
+    "past_location": [
+      {
+        "name": "Lucknow University",
+        "latitude": 26.8672,
+        "longitude": 80.9358,
+        "entry_time": "08:00 am",
+        "exit_time": "09:15 am"
+      },
+      {
+        "name": "Hazratganj Market",
+        "latitude": 26.8487,
+        "longitude": 80.9455,
+        "entry_time": "09:45 am",
+        "exit_time": "11:00 am"
+      },
+      {
+        "name": "Bara Imambara",
+        "latitude": 26.8691,
+        "longitude": 80.9120,
+        "entry_time": "11:30 am",
+        "exit_time": "12:45 pm"
+      },
+      {
+        "name": "Rumi Darwaza",
+        "latitude": 26.8692,
+        "longitude": 80.9137,
+        "entry_time": "01:15 pm",
+        "exit_time": "02:00 pm"
+      },
+      {
+        "name": "Chota Imambara",
+        "latitude": 26.8682,
+        "longitude": 80.9172,
+        "entry_time": "02:30 pm",
+        "exit_time": "03:45 pm"
+      },
+      {
+        "name": "Ambedkar Memorial Park",
+        "latitude": 26.8344,
+        "longitude": 80.9853,
+        "entry_time": "04:15 pm",
+        "exit_time": "05:30 pm"
+      },
+      {
+        "name": "Gomti Riverfront Park",
+        "latitude": 26.8558,
+        "longitude": 80.9435,
+        "entry_time": "06:00 pm",
+        "exit_time": "07:15 pm"
+      },
+      {
+        "name": "Lucknow Zoo",
+        "latitude": 26.8450,
+        "longitude": 80.9462,
+        "entry_time": "07:45 pm",
+        "exit_time": "09:00 pm"
+      },
+      {
+        "name": "Janeshwar Mishra Park",
+        "latitude": 26.8607,
+        "longitude": 81.0007,
+        "entry_time": "09:30 pm",
+        "exit_time": "10:45 pm"
+      },
+      {
+        "name": "British Residency",
+        "latitude": 26.8590,
+        "longitude": 80.9167,
+        "entry_time": "11:15 pm",
+        "exit_time": "11:59 pm"
+      }
+    ]
   }
 ]

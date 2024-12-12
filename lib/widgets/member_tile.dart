@@ -171,7 +171,7 @@ class MemberTile extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Page2()),
+                              MaterialPageRoute(builder: (context) => ExpandableMapPage(member: member)),
                             );
                           },
                           style: ElevatedButton.styleFrom(
@@ -226,7 +226,7 @@ class MemberTile extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Page2()),
+                              MaterialPageRoute(builder: (context) => ExpandableMapPage(member: member)),
                             );
                           },
                           style: ElevatedButton.styleFrom(

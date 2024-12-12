@@ -5,6 +5,7 @@ import 'all_members_page.dart';
 import '../models/member.dart';
 import '../screens/page1.dart';
 import '../screens/page2.dart';
+import 'showMap.dart';
 
 class AttendancePage extends StatefulWidget {
   const AttendancePage({Key? key}) : super(key: key);
@@ -40,7 +41,7 @@ class _AttendancePageState extends State<AttendancePage> {
         leading: IconButton(
           icon: const Icon(Icons.menu, color: Colors.white),
           onPressed: () {
-             Navigator.pop(context);
+            Navigator.pop(context);
           },
         ),
         title: const Text(
@@ -56,8 +57,8 @@ class _AttendancePageState extends State<AttendancePage> {
           // All Members Header
           Container(
             padding: EdgeInsets.symmetric(
-              horizontal: screenWidth * 0.04, 
-              vertical: screenWidth * 0.03
+              horizontal: screenWidth * 0.04,
+              vertical: screenWidth * 0.03,
             ),
             color: Colors.grey[100],
             child: Row(
@@ -74,7 +75,8 @@ class _AttendancePageState extends State<AttendancePage> {
                     // Navigate to AllMembersPage when clicked
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => AllMembersPage()),
+                      MaterialPageRoute(
+                          builder: (context) => AllMembersPage()),
                     );
                   },
                   child: const Text(
@@ -149,6 +151,35 @@ class _AttendancePageState extends State<AttendancePage> {
                   },
                 );
               },
+            ),
+          ),
+          // Bottom Navigation Container
+          Container(
+            color: const Color(0xFF5C3DC2),
+            padding: EdgeInsets.symmetric(vertical: screenWidth * 0.04),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>  MembersMapPage()),
+                );
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.map, color: Colors.white, size: 24),
+                  SizedBox(width: screenWidth * 0.02),
+                  const Text(
+                    'View Members Map',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -268,7 +299,8 @@ class _AttendancePageState extends State<AttendancePage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ExpandableMapPage(member: member)),
+                    MaterialPageRoute(
+                        builder: (context) => ExpandableMapPage(member: member)),
                   );
                 },
                 color: const Color(0xFF5C3DC2),
@@ -278,7 +310,8 @@ class _AttendancePageState extends State<AttendancePage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => GoogleMapScreen(member: member)),
+                    MaterialPageRoute(
+                        builder: (context) => GoogleMapScreen(member: member)),
                   );
                 },
                 color: const Color(0xFF5C3DC2),
