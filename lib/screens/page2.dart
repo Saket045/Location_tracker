@@ -17,9 +17,12 @@ class _ExpandableMapPageState extends State<ExpandableMapPage> {
   late GoogleMapController _mapController;
   late LatLng _initialPosition;
   late Marker _marker;
+  Marker? _destinationMarker; // Marker for the destination
   bool _isExpanded = false;
 
   List<PastLocation> _pastLocations = [];
+  Set<Polyline> _polylines = {}; // Store polylines
+  Set<Marker> _markers = {}; // Store all markers
 
   @override
   void initState() {
@@ -34,6 +37,7 @@ class _ExpandableMapPageState extends State<ExpandableMapPage> {
       ),
     );
 
+    _markers.add(_marker); // Add initial marker
     _loadPastLocations();
   }
 
@@ -56,10 +60,44 @@ class _ExpandableMapPageState extends State<ExpandableMapPage> {
     }
   }
 
-  void _toggleExpand() {
+  void _toggleExpand([bool? forceExpand]) {
     setState(() {
-      _isExpanded = !_isExpanded;
+      _isExpanded = forceExpand ?? !_isExpanded;
     });
+  }
+
+  void _drawPolyline(LatLng destination) {
+    setState(() {
+      // Clear existing polylines and destination marker
+      _polylines.clear();
+      if (_destinationMarker != null) {
+        _markers.remove(_destinationMarker);
+      }
+
+      // Add new polyline
+      _polylines.add(Polyline(
+        polylineId: PolylineId('route_to_${destination.latitude}_${destination.longitude}'),
+        points: [_initialPosition, destination],
+        color: Colors.blue,
+        width: 5,
+      ));
+
+      // Add destination marker (blue dot)
+      _destinationMarker = Marker(
+        markerId: MarkerId('destination'),
+        position: destination,
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue), // Blue marker
+        infoWindow: InfoWindow(
+          title: 'Destination',
+        ),
+      );
+
+      // Add destination marker to markers set
+      _markers.add(_destinationMarker!);
+    });
+
+    // Animate camera to the selected location
+    _mapController.animateCamera(CameraUpdate.newLatLng(destination));
   }
 
   @override
@@ -73,37 +111,41 @@ class _ExpandableMapPageState extends State<ExpandableMapPage> {
         ),
         elevation: 0, // Remove shadow
       ),
-      body: Column(
+      body: Stack(
         children: [
-          // Top part with Google Map
+          // Map View
           AnimatedContainer(
             duration: Duration(milliseconds: 300),
-            height: _isExpanded ? 0 : MediaQuery.of(context).size.height * 0.6,
-            color: Colors.white, // Set map container background to white
+            height: _isExpanded ? MediaQuery.of(context).size.height : MediaQuery.of(context).size.height * 0.6,
             child: GoogleMap(
               initialCameraPosition: CameraPosition(
                 target: _initialPosition,
-                zoom: 15,
+                zoom: 13,
               ),
-              markers: {_marker},
+              markers: _markers, // Add markers to the map
+              polylines: _polylines, // Add polylines to the map
               onMapCreated: (GoogleMapController controller) {
                 _mapController = controller;
               },
             ),
           ),
-          // Bottom part (expandable)
-          Expanded(
+          // Expandable Bottom View
+          Align(
+            alignment: Alignment.bottomCenter,
             child: GestureDetector(
-              onTap: _toggleExpand,
+              onTap: () => _toggleExpand(),
               child: AnimatedContainer(
                 duration: Duration(milliseconds: 300),
                 curve: Curves.easeInOut,
+                height: _isExpanded
+                    ? MediaQuery.of(context).size.height
+                    : MediaQuery.of(context).size.height * 0.4,
                 width: double.infinity, // Ensure it takes the full width
                 decoration: BoxDecoration(
                   color: Colors.white, // Set background to white
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(_isExpanded ? 0 : 30),
-                    topRight: Radius.circular(_isExpanded ? 0 : 30),
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
                   ),
                   boxShadow: [
                     BoxShadow(
@@ -115,58 +157,43 @@ class _ExpandableMapPageState extends State<ExpandableMapPage> {
                 ),
                 child: Column(
                   children: [
-                    // Removed the Icon widget
                     SizedBox(height: 20),
-                    // Content changes based on expanded or not expanded
                     Expanded(
-                      child: _isExpanded
-                          ? ListView.builder(
-                              itemCount: _pastLocations.length,
-                              itemBuilder: (context, index) {
-                                PastLocation loc = _pastLocations[index];
-                                return Container(
-                                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(8),
-                                    border: Border.all(
-                                      color: Colors.grey, // Border color
-                                      width: 1, // Border width
-                                    ),
-                                  ),
-                                  child: ListTile(
-                                    title: Text(
-                                      loc.name,
-                                      style: TextStyle(color: Colors.black),
-                                    ),
-                                    subtitle: Text(
-                                      'Entry: ${loc.entryTime}\nExit: ${loc.exitTime}',
-                                      style: TextStyle(color: Colors.black),
-                                    ),
-                                  ),
-                                );
-                              },
-                            )
-                          : Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Past Locations: ${_pastLocations.length}',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    color: Colors.black,
-                                  ),
+                      child: ListView.builder(
+                        itemCount: _pastLocations.length,
+                        itemBuilder: (context, index) {
+                          PastLocation loc = _pastLocations[index];
+                          LatLng destination = LatLng(loc.latitude, loc.longitude);
+
+                          return GestureDetector(
+                            onTap: () {
+                              _drawPolyline(destination);
+                              _toggleExpand(false); // Collapse the bottom view
+                            },
+                            child: Container(
+                              margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(8),
+                                border: Border.all(
+                                  color: Colors.grey, // Border color
+                                  width: 1, // Border width
                                 ),
-                                SizedBox(height: 10),
-                                Text(
-                                  'Last Visited: ${_pastLocations.isNotEmpty ? _pastLocations.last.name : 'No data'}',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.black,
-                                  ),
+                              ),
+                              child: ListTile(
+                                title: Text(
+                                  loc.name,
+                                  style: TextStyle(color: Colors.black),
                                 ),
-                              ],
+                                subtitle: Text(
+                                  'Entry: ${loc.entryTime}\nExit: ${loc.exitTime}',
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                              ),
                             ),
+                          );
+                        },
+                      ),
                     ),
                   ],
                 ),
