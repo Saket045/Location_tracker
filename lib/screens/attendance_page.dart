@@ -6,6 +6,7 @@ import '../models/member.dart';
 import 'page1.dart';
 import 'page2.dart';
 import 'showMap.dart';
+import 'package:intl/intl.dart';
 
 class AttendancePage extends StatefulWidget {
   const AttendancePage({Key? key}) : super(key: key);
@@ -31,7 +32,6 @@ class _AttendancePageState extends State<AttendancePage> {
 
   @override
   Widget build(BuildContext context) {
-    // Get screen size information
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -69,10 +69,8 @@ class _AttendancePageState extends State<AttendancePage> {
                   size: 24,
                 ),
                 SizedBox(width: screenWidth * 0.02),
-                const SizedBox(width: 8),
                 GestureDetector(
                   onTap: () {
-                    // Navigate to AllMembersPage when clicked
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -112,11 +110,11 @@ class _AttendancePageState extends State<AttendancePage> {
                   icon: const Icon(Icons.chevron_left),
                   onPressed: () {},
                 ),
-                const Text(
-                  'Tue, Aug 31 2022',
+                Text(
+                  DateFormat('EEE, MMM d yyyy').format(DateTime.now()),
                   style: TextStyle(
-                    fontSize: 18,
-                    color: Color(0xFF1A1F36),
+                    fontSize: screenWidth * 0.045,
+                    color: const Color(0xFF1A1F36),
                   ),
                 ),
                 IconButton(
@@ -162,7 +160,7 @@ class _AttendancePageState extends State<AttendancePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>  MembersMapPage()),
+                      builder: (context) => MembersMapPage()),
                 );
               },
               child: Row(
@@ -211,81 +209,26 @@ class _AttendancePageState extends State<AttendancePage> {
                 Text(
                   member.name,
                   style: TextStyle(
-                    fontSize: screenWidth * 0.04,
+                    fontSize: screenWidth * 0.045,
                     fontWeight: FontWeight.bold,
                     color: const Color(0xFF1A1F36),
                   ),
                 ),
                 const SizedBox(height: 4),
-                Row(
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
                   children: [
-                    if (member.loginTime != null) ...[
-                      Transform.rotate(
-                        angle: -0.785398, // 45 degrees
-                        child: Icon(Icons.arrow_upward,
-                            size: screenWidth * 0.04, color: Colors.green[400]),
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        member.loginTime!,
-                        style: TextStyle(
-                          color: Colors.grey[600],
-                          fontSize: screenWidth * 0.035,
-                        ),
-                      ),
-                    ],
-                    if (member.logoutTime != null) ...[
-                      const SizedBox(width: 16),
-                      Transform.rotate(
-                        angle: -0.785398, // 45 degrees
-                        child: Icon(Icons.arrow_downward,
-                            size: screenWidth * 0.04, color: Colors.red[400]),
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        member.logoutTime!,
-                        style: TextStyle(
-                          color: Colors.grey[600],
-                          fontSize: screenWidth * 0.035,
-                        ),
-                      ),
-                    ],
-                    if (member.status == "WORKING") ...[
-                      const SizedBox(width: 8),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 4),
-                        decoration: BoxDecoration(
-                          color: Colors.green[100],
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Text(
-                          'WORKING',
-                          style: TextStyle(
-                            color: Colors.green[700],
-                            fontSize: screenWidth * 0.035,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ],
-                    if (member.status == "NOT LOGGED IN YET") ...[
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 4),
-                        decoration: BoxDecoration(
-                          color: Colors.grey[200],
-                          borderRadius: BorderRadius.circular(4),
-                        ),
-                        child: Text(
-                          'NOT LOGGED-IN YET',
-                          style: TextStyle(
-                            color: Colors.grey[600],
-                            fontSize: screenWidth * 0.035,
-                          ),
-                        ),
-                      ),
-                    ],
+                    if (member.loginTime != null)
+                      _buildStatusIcon(
+                          Icons.arrow_upward, member.loginTime!, Colors.green),
+                    if (member.logoutTime != null)
+                      _buildStatusIcon(
+                          Icons.arrow_downward, member.logoutTime!, Colors.red),
+                    if (member.status == "WORKING")
+                      _buildStatusChip('WORKING', Colors.green),
+                    if (member.status == "NOT LOGGED IN YET")
+                      _buildStatusChip('NOT LOGGED IN YET', Colors.grey),
                   ],
                 ),
               ],
@@ -319,6 +262,41 @@ class _AttendancePageState extends State<AttendancePage> {
             ],
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildStatusIcon(IconData icon, String text, Color color) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Transform.rotate(
+          angle: -0.785398, // 45 degrees
+          child: Icon(icon, size: 18, color: color),
+        ),
+        const SizedBox(width: 4),
+        Text(
+          text,
+          style: TextStyle(color: Colors.grey[600], fontSize: 14),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildStatusChip(String text, Color color) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.2),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
+        ),
       ),
     );
   }
