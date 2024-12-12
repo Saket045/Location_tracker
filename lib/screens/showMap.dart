@@ -56,20 +56,7 @@ class _MembersMapPageState extends State<MembersMapPage> {
       appBar: AppBar(
         title: Text('ATTENDANCE'),
         backgroundColor: Color(0xFF6E56CF),
-        actions: [
-          TextButton(
-            child: Text('All Members', style: TextStyle(color: Colors.white)),
-            onPressed: () {
-              // TODO: Implement member selection
-            },
-          ),
-          TextButton(
-            child: Text('Change', style: TextStyle(color: Colors.white)),
-            onPressed: () {
-              // TODO: Implement change functionality
-            },
-          ),
-        ],
+       
       ),
       body: _showListView ? _buildListView() : _buildMapView(),
       floatingActionButton: FloatingActionButton.extended(

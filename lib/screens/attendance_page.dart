@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'all_members_page.dart';
 import '../models/member.dart';
-import '../screens/page1.dart';
-import '../screens/page2.dart';
+import 'page1.dart';
+import 'page2.dart';
 import 'showMap.dart';
 
 class AttendancePage extends StatefulWidget {

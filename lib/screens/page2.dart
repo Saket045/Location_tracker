@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import '../models/member.dart';
+import '../models/member.dart'; // Assuming this is the provided member.dart
+import 'dart:convert'; // For JSON decoding
+import 'package:flutter/services.dart'; // For loading assets
 
 class ExpandableMapPage extends StatefulWidget {
   final Member member;
@@ -17,6 +19,8 @@ class _ExpandableMapPageState extends State<ExpandableMapPage> {
   late Marker _marker;
   bool _isExpanded = false;
 
+  List<PastLocation> _pastLocations = [];
+
   @override
   void initState() {
     super.initState();
@@ -29,6 +33,27 @@ class _ExpandableMapPageState extends State<ExpandableMapPage> {
         snippet: widget.member.location.name,
       ),
     );
+
+    _loadPastLocations();
+  }
+
+  Future<void> _loadPastLocations() async {
+    try {
+      final String jsonString = await rootBundle.loadString('assets/members.json');
+      final List<dynamic> jsonData = jsonDecode(jsonString);
+
+      // Find the matching member from the JSON data
+      final memberData = jsonData.firstWhere((data) => data['id'] == widget.member.id);
+
+      // Parse `past_location` from the JSON data
+      final List<dynamic> pastLocationData = memberData['past_location'] ?? [];
+
+      setState(() {
+        _pastLocations = pastLocationData.map((data) => PastLocation.fromJson(data)).toList();
+      });
+    } catch (e) {
+      print('Error loading past locations: $e');
+    }
   }
 
   void _toggleExpand() {
@@ -41,7 +66,12 @@ class _ExpandableMapPageState extends State<ExpandableMapPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('${widget.member.name}\'s Location'),
+        backgroundColor: Colors.white, // Set AppBar background to white
+        title: Text(
+          '${widget.member.name}\'s Location',
+          style: TextStyle(color: Colors.black), // Set text color in AppBar to black
+        ),
+        elevation: 0, // Remove shadow
       ),
       body: Column(
         children: [
@@ -49,6 +79,7 @@ class _ExpandableMapPageState extends State<ExpandableMapPage> {
           AnimatedContainer(
             duration: Duration(milliseconds: 300),
             height: _isExpanded ? 0 : MediaQuery.of(context).size.height * 0.6,
+            color: Colors.white, // Set map container background to white
             child: GoogleMap(
               initialCameraPosition: CameraPosition(
                 target: _initialPosition,
@@ -67,8 +98,9 @@ class _ExpandableMapPageState extends State<ExpandableMapPage> {
               child: AnimatedContainer(
                 duration: Duration(milliseconds: 300),
                 curve: Curves.easeInOut,
+                width: double.infinity, // Ensure it takes the full width
                 decoration: BoxDecoration(
-                  color: Colors.blue[300],
+                  color: Colors.white, // Set background to white
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(_isExpanded ? 0 : 30),
                     topRight: Radius.circular(_isExpanded ? 0 : 30),
@@ -82,30 +114,59 @@ class _ExpandableMapPageState extends State<ExpandableMapPage> {
                   ],
                 ),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(
-                      _isExpanded ? Icons.keyboard_arrow_down : Icons.keyboard_arrow_up,
-                      size: 40,
-                      color: Colors.white,
-                    ),
+                    // Removed the Icon widget
                     SizedBox(height: 20),
-                    Text(
-                      _isExpanded ? 'Tap to show map' : 'Tap to expand',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(
-                        'Member: ${widget.member.name}\nLocation: ${widget.member.location.name}',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 16, color: Colors.white),
-                      ),
+                    // Content changes based on expanded or not expanded
+                    Expanded(
+                      child: _isExpanded
+                          ? ListView.builder(
+                              itemCount: _pastLocations.length,
+                              itemBuilder: (context, index) {
+                                PastLocation loc = _pastLocations[index];
+                                return Container(
+                                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(8),
+                                    border: Border.all(
+                                      color: Colors.grey, // Border color
+                                      width: 1, // Border width
+                                    ),
+                                  ),
+                                  child: ListTile(
+                                    title: Text(
+                                      loc.name,
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                    subtitle: Text(
+                                      'Entry: ${loc.entryTime}\nExit: ${loc.exitTime}',
+                                      style: TextStyle(color: Colors.black),
+                                    ),
+                                  ),
+                                );
+                              },
+                            )
+                          : Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Past Locations: ${_pastLocations.length}',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                SizedBox(height: 10),
+                                Text(
+                                  'Last Visited: ${_pastLocations.isNotEmpty ? _pastLocations.last.name : 'No data'}',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ],
+                            ),
                     ),
                   ],
                 ),
@@ -117,4 +178,3 @@ class _ExpandableMapPageState extends State<ExpandableMapPage> {
     );
   }
 }
-
