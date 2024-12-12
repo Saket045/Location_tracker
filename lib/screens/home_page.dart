@@ -31,19 +31,20 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Container(
                     padding: const EdgeInsets.all(24.0),
+                    color: const Color(0xFF5C3DC2), // Updated background color
                     child: Row(
                       children: [
                         IconButton(
-                          icon: Icon(Icons.menu, color: const Color.fromARGB(255, 30, 17, 219)),
+                          icon: Icon(Icons.menu, color: Colors.white),
                           onPressed: _toggleDrawer,
                         ),
                         SizedBox(width: 10),
                         Text(
-                          'Welcome to Workstatus!',
+                          '',
                           style: TextStyle(
                             fontSize: 26,
                             fontWeight: FontWeight.w600,
-                            color: const Color.fromARGB(255, 68, 79, 238),
+                            color: Colors.white,
                           ),
                         ),
                       ],
@@ -133,10 +134,6 @@ class NavigationDrawer extends StatelessWidget {
                           ),
                         ],
                       ),
-                      // IconButton(
-                      //   icon: Icon(Icons.close, color: Colors.white),
-                      //   onPressed: onCloseDrawer,
-                      // ),
                     ],
                   ),
                   SizedBox(height: 24),
@@ -215,4 +212,3 @@ class NavigationDrawer extends StatelessWidget {
     );
   }
 }
-
