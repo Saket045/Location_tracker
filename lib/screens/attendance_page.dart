@@ -39,7 +39,9 @@ class _AttendancePageState extends State<AttendancePage> {
         backgroundColor: const Color(0xFF5C3DC2),
         leading: IconButton(
           icon: const Icon(Icons.menu, color: Colors.white),
-          onPressed: () {},
+          onPressed: () {
+             Navigator.pop(context);
+          },
         ),
         title: const Text(
           'ATTENDANCE',
@@ -266,7 +268,7 @@ class _AttendancePageState extends State<AttendancePage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => GoogleMapScreen(member: member)),
+                    MaterialPageRoute(builder: (context) => ExpandableMapPage(member: member)),
                   );
                 },
                 color: const Color(0xFF5C3DC2),
@@ -276,7 +278,7 @@ class _AttendancePageState extends State<AttendancePage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Page2()),
+                    MaterialPageRoute(builder: (context) => GoogleMapScreen(member: member)),
                   );
                 },
                 color: const Color(0xFF5C3DC2),
