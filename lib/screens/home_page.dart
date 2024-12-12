@@ -3,44 +3,72 @@ import 'attendance_page.dart';
 import '../widgets/drawer_item.dart';
 import '../screens/attendance_page.dart';
 
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
 
-class HomePage extends StatelessWidget {
+class _HomePageState extends State<HomePage> {
+  bool _isDrawerOpen = true;
+
+  void _toggleDrawer() {
+    setState(() {
+      _isDrawerOpen = !_isDrawerOpen;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
+      body: Stack(
         children: [
-          // Fixed Navigation Drawer
-          NavigationDrawer(),
-          // Scrollable Content
-          Expanded(
+          // Main Content
+          Container(
+            color: const Color.fromARGB(255, 246, 246, 249),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      'Welcome to Workstatus!',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: const Color.fromRGBO(96, 125, 139, 1),
-                      ),
+                    padding: const EdgeInsets.all(24.0),
+                    child: Row(
+                      children: [
+                        IconButton(
+                          icon: Icon(Icons.menu, color: const Color.fromARGB(255, 30, 17, 219)),
+                          onPressed: _toggleDrawer,
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                          'Welcome to Workstatus!',
+                          style: TextStyle(
+                            fontSize: 26,
+                            fontWeight: FontWeight.w600,
+                            color: const Color.fromARGB(255, 68, 79, 238),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  // Example scrollable content
+                  // Content Cards
                   ListView.builder(
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: 20, // Simulating 20 items for content
+                    itemCount: 20,
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 16.0, vertical: 8.0),
+                            horizontal: 24.0, vertical: 8.0),
                         child: Card(
+                          elevation: 2,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
                           child: ListTile(
-                            title: Text('Item ${index + 1}'),
+                            contentPadding: EdgeInsets.all(16),
+                            title: Text(
+                              'Item ${index + 1}',
+                              style: TextStyle(fontWeight: FontWeight.w500),
+                            ),
                             subtitle: Text('Details about item ${index + 1}'),
                           ),
                         ),
@@ -51,191 +79,140 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
+          // Navigation Drawer
+          AnimatedPositioned(
+            duration: Duration(milliseconds: 300),
+            left: _isDrawerOpen ? 0 : -280,
+            top: 0,
+            bottom: 0,
+            width: 280,
+            child: NavigationDrawer(onCloseDrawer: _toggleDrawer),
+          ),
         ],
       ),
     );
   }
 }
 
-/*class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Row(
-        children: [
-          NavigationDrawer(),
-          Expanded(
-            child: Center(
-              child: Text(
-                'Welcome to Workstatus!',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: const Color.fromRGBO(96, 125, 139, 1),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}*/
+class NavigationDrawer extends StatelessWidget {
+  final VoidCallback onCloseDrawer;
 
-/*class HomePage extends StatelessWidget {
+  const NavigationDrawer({Key? key, required this.onCloseDrawer}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          // Navigation Drawer - Positioned to the left
-          Positioned(
-            top: 0,
-            bottom: 0,
-            left: 0,
-            width: 250,
-            child: Container(
-              color: Colors.blueGrey.shade50,
-              child: NavigationDrawer(),
-            ),
-          ),
-          // Main Content Area - Positioned to fill the remaining space
-          Positioned(
-            top: 0,
-            bottom: 0,
-            left: 250,
-            right: 0,
-            child: Center(
-              child: Container(
-                padding: EdgeInsets.all(16.0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.2),
-                      spreadRadius: 5,
-                      blurRadius: 10,
-                      offset: Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      'Welcome to Workstatus!',
-                      style: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.bold,
-                        color: const Color.fromRGBO(96, 125, 139, 1),
-                        shadows: [
-                          Shadow(
-                            blurRadius: 4.0,
-                            color: Colors.grey.withOpacity(0.5),
-                            offset: Offset(2, 2),
+    return Material(
+      elevation: 16,
+      child: Container(
+        width: 280,
+        color: Colors.white,
+        child: Column(
+          children: [
+            // Header Section
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 24),
+              color: const Color(0xFF4A3B83),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(Icons.access_time_filled, color: Colors.white, size: 28),
+                          SizedBox(width: 8),
+                          Text(
+                            'workstatus',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w600,
+                              letterSpacing: 0.5,
+                            ),
                           ),
                         ],
                       ),
-                      textAlign: TextAlign.center,
+                      // IconButton(
+                      //   icon: Icon(Icons.close, color: Colors.white),
+                      //   onPressed: onCloseDrawer,
+                      // ),
+                    ],
+                  ),
+                  SizedBox(height: 24),
+                  CircleAvatar(
+                    radius: 32,
+                    backgroundColor: Colors.white,
+                    backgroundImage: NetworkImage(
+                      'https://png.pngtree.com/png-clipart/20231019/original/pngtree-user-profile-avatar-png-image_13369988.png'
                     ),
-                    SizedBox(height: 8),
-                    Text(
-                      'Manage your work effortlessly with our tools.',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.grey.shade600,
-                      ),
-                      textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 12),
+                  Text(
+                    'Cameron Williamson',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
                     ),
-                  ],
-                ),
+                  ),
+                  Text(
+                    'cameronwilliamson@gmail.com',
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.8),
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
               ),
             ),
-          ),
-        ],
-      ),
-    );
-  }
-}*/
-
-class NavigationDrawer extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 250,
-      color: const Color.fromRGBO(74, 59, 131, 1),
-      child: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
-            color: const Color.fromARGB(255, 65, 46, 137),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'workstatus',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+            // Menu Items
+            Expanded(
+              child: ListView(
+                padding: EdgeInsets.symmetric(vertical: 8),
+                children: [
+                  DrawerItem(
+                    icon: Icons.timer_outlined,
+                    title: 'Timer',
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Timer Selected')),
+                      );
+                    },
                   ),
-                ),
-                SizedBox(height: 20),
-                CircleAvatar(
-                  radius: 30,
-                  backgroundColor: Colors.white,
-                  backgroundImage: NetworkImage('https://png.pngtree.com/png-clipart/20231019/original/pngtree-user-profile-avatar-png-image_13369988.png'),
+                  DrawerItem(
+                    icon: Icons.calendar_today_outlined,
+                    title: 'Attendance',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AttendancePage()),
+                      );
+                    },
                   ),
-                const SizedBox(height: 10),
-                Text(
-                  'Cameron Williamson',
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                ),
-                Text(
-                  'cameronwilliamson@gmail.com',
-                  style: TextStyle(color: Colors.white70, fontSize: 14),
-                ),
-              ],
+                  DrawerItem(icon: Icons.trending_up_outlined, title: 'Activity'),
+                  DrawerItem(icon: Icons.access_time_outlined, title: 'Timesheet'),
+                  DrawerItem(icon: Icons.bar_chart_outlined, title: 'Report'),
+                  DrawerItem(icon: Icons.place_outlined, title: 'Jobsite'),
+                  DrawerItem(icon: Icons.group_outlined, title: 'Team'),
+                  DrawerItem(icon: Icons.beach_access_outlined, title: 'Time Off'),
+                  DrawerItem(icon: Icons.schedule_outlined, title: 'Schedules'),
+                  DrawerItem(
+                    icon: Icons.group_add_outlined,
+                    title: 'Request to Join Organization',
+                  ),
+                  SizedBox(height: 16),
+                  Divider(height: 1),
+                  SizedBox(height: 16),
+                  DrawerItem(icon: Icons.lock_outline, title: 'Change Password'),
+                  DrawerItem(icon: Icons.logout_outlined, title: 'Logout'),
+                ],
+              ),
             ),
-          ),
-          Expanded(
-            child: ListView(
-              children: [
-                DrawerItem(
-                  icon: Icons.timer,
-                  title: 'Timer',
-                  onTap: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Timer Selected')),
-                    );
-                  },
-                ),
-                DrawerItem(
-                  icon: Icons.check_circle_outline,
-                  title: 'Attendance',
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => AttendancePage()),
-                    );
-                  },
-                ),
-                DrawerItem(icon: Icons.trending_up, title: 'Activity'),
-                DrawerItem(icon: Icons.access_time_filled, title: 'Timesheet'),
-                DrawerItem(icon: Icons.bar_chart, title: 'Report'),
-                DrawerItem(icon: Icons.place, title: 'Jobsite'),
-                DrawerItem(icon: Icons.group, title: 'Team'),
-                DrawerItem(icon: Icons.beach_access, title: 'Time Off'),
-                DrawerItem(icon: Icons.schedule, title: 'Schedules'),
-                DrawerItem(icon: Icons.person_add, title: 'Request to Join Organization'),
-                DrawerItem(icon: Icons.lock, title: 'Change Password'),
-                DrawerItem(icon: Icons.logout, title: 'Logout'),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 }
+

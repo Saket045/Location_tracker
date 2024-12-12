@@ -3,33 +3,36 @@ import 'package:flutter/material.dart';
 class DrawerItem extends StatelessWidget {
   final IconData icon;
   final String title;
-  final Function()? onTap;
+  final VoidCallback? onTap;
 
-  const DrawerItem({required this.icon, required this.title, this.onTap});
+  const DrawerItem({
+    Key? key,
+    required this.icon,
+    required this.title,
+    this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
-        child: Row(
-          children: [
-            Icon(icon, size: 24, color: Colors.white),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ],
+    return ListTile(
+      contentPadding: EdgeInsets.symmetric(horizontal: 24, vertical: 4),
+      leading: Icon(
+        icon,
+        size: 22,
+        color: Color(0xFF4A3B83),
+      ),
+      title: Text(
+        title,
+        style: TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.w500,
+          color: Color(0xFF2D2A4A),
         ),
       ),
+      onTap: onTap,
+      dense: true,
+      horizontalTitleGap: 12,
     );
   }
 }
+
