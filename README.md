@@ -22,7 +22,7 @@ Welcome to **Location Screen**, a modern, cross-platform mobile application buil
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/yourproject.git
+   git clone https://github.com/yourusername/yourproject.git](https://github.com/Saket045/Location_tracker.git
    ```
 
 2. **Navigate to the project directory**:
