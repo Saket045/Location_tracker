@@ -1,6 +1,11 @@
-# 🚀 Flutter Project
+# 🚀 Flutter Project 
 
-Welcome to **[Your Project Name]**, a modern, cross-platform mobile application built with Flutter! This project leverages the power of Flutter's flexible UI framework and a robust set of features to deliver a seamless and interactive experience.
+## Contributors
+Saket Nigam
+Harsh Sahu
+Rashmi Vartika
+
+Welcome to **Location Screen**, a modern, cross-platform mobile application built with Flutter! This project leverages the power of Flutter's flexible UI framework and a robust set of features to deliver a seamless and interactive experience.
 
 ## 🌟 Features
 
@@ -13,10 +18,6 @@ Welcome to **[Your Project Name]**, a modern, cross-platform mobile application 
 
 ## 📱 Screenshots
 
-| Home Screen | Map Screen | Profile Screen |
-|-------------|------------|----------------|
-| ![Home](assets/screenshots/home.png) | ![Map](assets/screenshots/map.png) | ![Profile](assets/screenshots/profile.png) |
-
 ## 🛠️ Installation
 
 1. **Clone the repository**:
@@ -26,7 +27,7 @@ Welcome to **[Your Project Name]**, a modern, cross-platform mobile application 
 
 2. **Navigate to the project directory**:
    ```bash
-   cd yourproject
+   cd Location_tracker
    ```
 
 3. **Install dependencies**:
@@ -53,11 +54,9 @@ project/
 │   ├── screens/
 │   ├── widgets/
 │   ├── models/
-│   ├── providers/
 │   └── main.dart
 ├── assets/
-│   ├── images/
-│   └── screenshots/
+│   ├── members.json
 └── pubspec.yaml
 ```
 
@@ -79,10 +78,6 @@ Contributions are welcome! Please follow these steps to contribute:
    git push origin feature/your-feature-name
    ```
 5. Open a pull request.
-
-## 📄 License
-
-This project is licensed under the MIT License. See the `LICENSE` file for more information.
 
 ## ❤️ Acknowledgments
 
