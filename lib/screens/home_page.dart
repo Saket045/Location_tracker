@@ -112,7 +112,7 @@ class NavigationDrawer extends StatelessWidget {
             // Header Section
             Container(
               padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 24),
-              color: const Color(0xFF4A3B83),
+              color: const Color(0xFF5C3DC2),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
