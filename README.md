@@ -23,6 +23,7 @@ Welcome to **Location Screen**, a modern, cross-platform mobile application buil
 ## 📱 Screenshots
 
 ![IMG-20241214-WA0001](https://github.com/user-attachments/assets/32ef2de8-5df7-4303-8187-0b6cc310a814)
+![IMG-20241214-WA0002](https://github.com/user-attachments/assets/604f77d7-0237-4b5f-8b75-02eb16067181)
 
 
 
