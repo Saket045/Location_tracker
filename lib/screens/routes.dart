@@ -82,34 +82,178 @@ class _PastLocationDetailsPageState extends State<PastLocationDetailsPage> {
               },
             ),
           ),
-          Expanded(
-            child: SingleChildScrollView(
+        Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 40.0), // Add vertical and horizontal padding for space around the container
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white, // Background color
+                borderRadius: BorderRadius.circular(12), // Rounded corners
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.15),
+                    spreadRadius: 2,
+                    blurRadius: 10,
+                    offset: Offset(0, 4), // Shadow position
+                  ),
+                ],
+              ),
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Member Details',
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
-                    const SizedBox(height: 8),
-                    Text('Name: ${widget.member.name ?? "Unknown"}'),
-                    Text('ID: ${widget.member.id ?? "Unknown"}'),
-                    const Divider(height: 32),
-                    Text(
-                      'Past Location Details',
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
-                    const SizedBox(height: 8),
-                    Text('Location: ${widget.pastLocation.name ?? "Unknown"}'),
-                    Text('Entry Time: ${widget.pastLocation.entryTime ?? "Unknown"}'),
-                    Text('Exit Time: ${widget.pastLocation.exitTime ?? "Unknown"}'),
-                  ],
-                ),
+            // Section Title: Member Details
+            Text(
+              'Member Details',
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w700,
+                color: Color(0xFF5C3DC2),
+                letterSpacing: 1.2,
               ),
             ),
-          ),
+            const SizedBox(height: 16),
+            // Member Name
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Name: ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Colors.black54,
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    widget.member.name ?? "Unknown",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            // Member ID
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'ID: ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Colors.black54,
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    widget.member.id ?? "Unknown",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const Divider(
+              height: 40,
+              thickness: 1.2,
+              color: Colors.grey,
+            ),
+            // Section Title: Past Location Details
+            Text(
+              'Past Location Details',
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w700,
+                color: Color(0xFF5C3DC2),
+                letterSpacing: 1.2,
+              ),
+            ),
+            const SizedBox(height: 16),
+            // Past Location Name
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Location: ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Colors.black54,
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    widget.pastLocation.name ?? "Unknown",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            // Entry Time
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Entry Time: ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Colors.black54,
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    widget.pastLocation.entryTime ?? "Unknown",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            // Exit Time
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Exit Time: ',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Colors.black54,
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    widget.pastLocation.exitTime ?? "Unknown",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    ),
+  ),
+),
         ],
       ),
     );
