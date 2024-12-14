@@ -4,6 +4,7 @@
 Saket Nigam
 Harsh Sahu
 Rashmi Vartika
+Ravi Prakash
 
 Welcome to **Location Screen**, a modern, cross-platform mobile application built with Flutter! This project leverages the power of Flutter's flexible UI framework and a robust set of features to deliver a seamless and interactive experience.
 
@@ -16,7 +17,13 @@ Welcome to **Location Screen**, a modern, cross-platform mobile application buil
 - 🔒 Secure authentication and user management
 - 📈 Analytics for tracking user interactions
 
+## Data 
+- Data is loaded from 'assets/member.json'
+
 ## 📱 Screenshots
+
+## Video Showcase
+ https://youtu.be/3DkqOQs6l4s?si=bLy4XXUvNH_OnTe0
 
 ## 🛠️ Installation
 
